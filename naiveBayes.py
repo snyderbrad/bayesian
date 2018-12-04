@@ -54,7 +54,7 @@ def summarize(dataset):
 	del summaries[-1]
 	return summaries
  
-def summarizeByClass(dataset):
+def summarizeClass(dataset):
 	separated = separateByClass(dataset)
 	summaries = {}
 	for classValue, instances in separated.items():
@@ -111,7 +111,7 @@ def main():
 		.format(len(dataset), len(trainingSet), len(testSet)))
 
 	# model
-	summaries = summarizeByClass(trainingSet)
+	summaries = summarizeClass(trainingSet)
 
 	# test
 	predictions = getPredictions(summaries, testSet)
