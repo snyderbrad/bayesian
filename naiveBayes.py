@@ -1,10 +1,12 @@
 ###
 ### Naive Bayes Classifier 
+### Input: CSV file 
+### Output: Probability based on Naive Bayes Machine Learning 
 ###
 import csv
 import math
 import random
-
+### prompt the user for csv file and options
 def prompt(option, filename): 
 	if filename == "": 
 		filename = input("no files found, enter now: ")
@@ -15,7 +17,7 @@ def prompt(option, filename):
 		print("(5) apply new cases as in 3.")
 		m_option = input("Enter option: ")
 		return m_option
-
+### load the csv line by line and return the dataset
 def loadCsv(filename):
 	lines = csv.reader(open(filename, "r"))
 	dataset = list(lines)
@@ -43,7 +45,8 @@ def separateByClass(dataset):
  
 def mean(numbers):
 	return sum(numbers)/float(len(numbers))
- 
+
+### returns standard deviation of numbers 
 def stdev(numbers):
 	avg = mean(numbers)
 	variance = sum([pow(x-avg,2) for x in numbers])/float(len(numbers)-1)
